@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da cobrinha </title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body class="jogo-cobrinha">
+    <header>
+        <nav>
+          <a class="logo" href="index.html"><img src="Logo Muzoo V2.png" width="85px"></a>
+          <div class="mobile-menu">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+          </div>
+          <ul class="nav-list">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Feedback</a></li>
+            <li><a href="jogos.html">Jogos </a></li>
+          </ul>
+          <a class="ifmg-logo" href="https://bambui.ifmg.edu.br/portal/portal/portal/portal/de"><img src="4ae281f4-bc79-43d3-ac26-990f22e9ba95.png" width="85px"></a>
+        </nav>
+      </header>
+
+      <h1>Jogo da Cobrinha</h1> 
+      <div class="game-area"> 
+        <button id="startButton" class="botao-jogo">Começar</button>
+        <button id="restartButton" class="botao-jogo" style="display: none;">Reiniciar</button>
+        <p class="score">Score: <span id="score">0</span></p>
+        <canvas id="gameCanvas" width="400" height="400">
+        </canvas> 
+    </div> 
+        <script src="mobile-navbar.js"></script>
+
+      <footer>
+        <a href="contatos.html" class="contatos"><p>Contatos</p></a>
+        <p>Todos Direitos Resevados &copy;</p>
+      </footer>
+</body>
+</html>

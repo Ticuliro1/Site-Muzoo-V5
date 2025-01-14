@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Navbar</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    header {
+      position: relative;
+      top: 0;
+
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a class="logo" href="/"><img src="Logo Muzoo V2.png" width="85px"></a>
+      <div class="mobile-menu">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+      <ul class="nav-list">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="#">Sobre</a></li>
+        <li><a href="#">Projetos</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+  <script src="mobile-navbar.js"></script>
+  <div class="parte1aves">
+    <section class="main swiper mySwiper">
+      <div class="wrapper swiper-wrapper">
+        <div class="slide swiper-slide">
+
+          <img src="tilapia.webp" alt="" class="image" />
+          <div class="image-data">
+            <h2>
+              Tilápia-do-nilo
+            </h2>
+            <span class="text"><i> Oreochromis niloticus Linnaeus, 1758 </i></span><br>
+            <a href="tilapia.html" class="button">Sobre</a>
+          </div>
+        </div>
+
+
+        </div>
+      </div>
+      <div class="swiper-button-next nav-btn"></div>
+      <div class="swiper-button-prev nav-btn"></div>
+      <div class="swiper-pagination"></div>
+    </section>
+    <div class="parte2aves">
+      <hr>
+      <h1>Oque são peixes?</h1>
+      <p>Os peixes são animais aquáticos que apresentam sistema digestório completo, respiração branquial e circulação simples e completa. Os peixes, como todos nós sabemos, são animais que vivem apenas em ambientes aquáticos, tais como rios, lagos e mares.</p>
+    </div>
+    <footer>
+      <p>Todos Direitos Resevados &copy;</p>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        loop: true,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+</body>
+</html>
