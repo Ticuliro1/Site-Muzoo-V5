@@ -178,7 +178,7 @@ function drawGame() {
         ctx.strokeRect(snake[i].x, snake[i].y, box, box);
     }
 
-    ctx.fillStyle = "blue";
+    ctx.fillStyle = "blue"; // cor da comida da cobra 
     ctx.fillRect(food.x, food.y, box, box);
 
     let snakeX = snake[0].x;
