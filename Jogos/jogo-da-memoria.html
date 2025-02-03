@@ -1,143 +1,176 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jogo da memória </title>
-    <link rel="stylesheet" href="../style.css" />
+    <title>Jogo da Memória com Imagens</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .board {
+            display: grid;
+            grid-template-columns: repeat(4, 100px);
+            gap: 10px;
+        }
+
+        .card {
+            width: 100px;
+            height: 100px;
+            background-color: #ccc;
+            border-radius: 10px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+
+        .card.flipped img {
+            display: block;
+        }
+
+        .card.matched {
+            background-color: #8aff8a;
+            cursor: default;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav>
-          <a class="logo" href="../index.html"><img src="../Logo Muzoo V2.png" width="85px"></a>
-          <div class="mobile-menu">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
-          </div>
-          <ul class="nav-list">
-            <li><a href="../index.html">Início</a></li>
-            <li><a href="#">Sobre</a></li>
-            <li><a href="Feedback.html">Feedback</a></li>
-            <li><a href="jogos.html">Jogos </a></li>
-            <li><a href="#">Acessibilidade</a></li>
-          </ul>
-          <a class="ifmg-logo" href="https://bambui.ifmg.edu.br/portal/portal/portal/portal/de"><img src="../4ae281f4-bc79-43d3-ac26-990f22e9ba95.png" width="85px"></a>
-        </nav>
-      </header>
-      <div class="memoria-game">
-    <h1 class="titulo-jogo-memoria"> Jogo da Memória </h1>
-    <h4>
-        Venha e descubra mais sobre os animais do muzoo de forma interativa!!
-    </h4>
-<div class="jogo-damemoria"> 
-    <div class="memory-game">
-        <div class="memory-card" data-framework="aurelia">
-            <img class="front-face" src="../img-animais/acaua.jpg" alt="Aurelia">
-            <img class="back-face" src="../Logo Muzoo V2.png" alt="Memory Card">
+    <h1>Jogo da Memória</h1>
+    <div class="board">
+        <!-- Par 1 -->
+        <div class="card" data-pair="1">
+            <img src="https://picsum.photos/seed/123/100/100" alt="Imagem 1">
+        </div>
+        <div class="card" data-pair="1">
+            <img src="https://picsum.photos/seed/123/100/100" alt="Imagem 1">
         </div>
 
-        <div class="memory-card" data-framework="aurelia">
-            <img class="front-face" src="../img-animais/acaua.jpg" alt="Aurelia">
-            <img class="back-face" src="../Logo Muzoo V2.png" alt="Memory Card">
+        <!-- Par 2 -->
+        <div class="card" data-pair="2">
+            <img src="https://picsum.photos/seed/456/100/100" alt="Imagem 2">
+        </div>
+        <div class="card" data-pair="2">
+            <img src="https://picsum.photos/seed/456/100/100" alt="Imagem 2">
         </div>
 
-        <div class="memory-card" data-framework="aurelia">
-            <img class="front-face" src="../img-animais/tamandua-bandeira.jpg" alt="Aurelia">
-            <img class="back-face" src="../Logo Muzoo V2.png" alt="Memory Card">
+        <!-- Par 3 -->
+        <div class="card" data-pair="3">
+            <img src="https://picsum.photos/seed/789/100/100" alt="Imagem 3">
+        </div>
+        <div class="card" data-pair="3">
+            <img src="https://picsum.photos/seed/789/100/100" alt="Imagem 3">
         </div>
 
-        <div class="memory-card" data-framework="aurelia">
-            <img class="front-face" src="../img-animais/tamandua-bandeira.jpg" alt="Aurelia">
-            <img class="back-face" src="../Logo Muzoo V2.png" alt="Memory Card">
+        <!-- Par 4 -->
+        <div class="card" data-pair="4">
+            <img src="https://picsum.photos/seed/012/100/100" alt="Imagem 4">
+        </div>
+        <div class="card" data-pair="4">
+            <img src="https://picsum.photos/seed/012/100/100" alt="Imagem 4">
         </div>
 
-        <div class="memory-card" data-framework="aurelia">
-            <img class="front-face" src="../img-animais/Arara canindé.webp" alt="Aurelia">
-            <img class="back-face" src="../Logo Muzoo V2.png" alt="Memory Card">
+        <!-- Par 5 -->
+        <div class="card" data-pair="5">
+            <img src="https://picsum.photos/seed/345/100/100" alt="Imagem 5">
+        </div>
+        <div class="card" data-pair="5">
+            <img src="https://picsum.photos/seed/345/100/100" alt="Imagem 5">
         </div>
 
-        <div class="memory-card" data-framework="aurelia">
-            <img class="front-face" src="../img-animais/Arara canindé.webp" alt="Aurelia">
-            <img class="back-face" src="../Logo Muzoo V2.png" alt="Memory Card">
+        <!-- Par 6 -->
+        <div class="card" data-pair="6">
+            <img src="https://picsum.photos/seed/678/100/100" alt="Imagem 6">
+        </div>
+        <div class="card" data-pair="6">
+            <img src="https://picsum.photos/seed/678/100/100" alt="Imagem 6">
         </div>
 
-        <div class="memory-card" data-framework="aurelia">
-            <img class="front-face" src="../img-animais/jacare-do-papo-amarelo.webp" alt="Aurelia">
-            <img class="back-face" src="../Logo Muzoo V2.png" alt="Memory Card">
+        <!-- Par 7 -->
+        <div class="card" data-pair="7">
+            <img src="https://picsum.photos/seed/901/100/100" alt="Imagem 7">
+        </div>
+        <div class="card" data-pair="7">
+            <img src="https://picsum.photos/seed/901/100/100" alt="Imagem 7">
         </div>
 
-        <div class="memory-card" data-framework="aurelia">
-            <img class="front-face" src="../img-animais/jacare-do-papo-amarelo.webp" alt="Aurelia">
-            <img class="back-face" src="../Logo Muzoo V2.png" alt="Memory Card">
+        <!-- Par 8 -->
+        <div class="card" data-pair="8">
+            <img src="https://picsum.photos/seed/234/100/100" alt="Imagem 8">
         </div>
-
-        <div class="memory-card" data-framework="aurelia">
-            <img class="front-face" src="../img-animais/jaguatirica.jpg" alt="Aurelia">
-            <img class="back-face" src="../Logo Muzoo V2.png" alt="Memory Card">
+        <div class="card" data-pair="8">
+            <img src="https://picsum.photos/seed/234/100/100" alt="Imagem 8">
         </div>
-
-        <div class="memory-card" data-framework="aurelia">
-            <img class="front-face" src="../img-animais/jaguatirica.jpg" alt="Aurelia">
-            <img class="back-face" src="../Logo Muzoo V2.png" alt="Memory Card">
-        </div>
-
-        <div class="memory-card" data-framework="aurelia">
-            <img class="front-face" src="../img-animais/irara.jpg" alt="Aurelia">
-            <img class="back-face" src="../Logo Muzoo V2.png" alt="Memory Card">
-        </div>
-
-        <div class="memory-card" data-framework="aurelia">
-            <img class="front-face" src="../img-animais/irara.jpg" alt="Aurelia">
-            <img class="back-face" src="../Logo Muzoo V2.png" alt="Memory Card">
-        </div>
-
-
     </div>
-    <script src="../mobile-navbar.js"></script>
-</div>
-      </div>
 
-      <footer class="rodape" id="contato">
-        <div class="rodape-div">
-    
-            <div class="rodape-div-1">
-                <div class="rodape-div-1-coluna">
-    
-                    <span><b>LOGO</b></span>
-                    <p>SIA Trecho 5 lote 000 bloco z sala 900 - IFMG, Bambuí - DF, 70000-010</p>
-                </div>
-            </div>
-    
-            <div class="rodape-div-2">
-                <div class="rodape-div-2-coluna">
-    
-                    <span><b>Contatos</b></span>
-                    <p>contato@na.na</p>
-                    <p>+55 63 99200-0000</p>
-                </div>
-            </div>
-    
-            <div class="rodape-div-3">
-                <div class="rodape-div-3-coluna">
-    
-                    <span><b>Links</b></span>
-                    <p><a href="index.html">Início</a></li></p>
-                    <p><a href="Jogos/jogos.html">Jogos </a></li></p>
-                    <p><a href="#sobre">Sobre</a></p>
-                </div>
-            </div>
-    
-            <div class="rodape-div-4">
-                <div class="rodape-div-4-coluna">
-    
-                    <span><b>Outros</b></span>
-                    <p>Políticas de Privacidade</p>
-                </div>
-            </div>
-    
-        </div>
-        <p class="rodape-direitos">Copyright © 2023 – Todos os Direitos Reservados.</p>
-    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const board = document.querySelector('.board');
+            const cards = Array.from(document.querySelectorAll('.card'));
+            let flippedCards = [];
+            let matchedCards = [];
+
+            // Embaralha as cartas
+            cards.sort(() => Math.random() - 0.5)
+                 .forEach(card => board.appendChild(card));
+
+            // Adiciona evento de clique
+            cards.forEach(card => {
+                card.addEventListener('click', () => flipCard(card));
+            });
+
+            function flipCard(card) {
+                if (flippedCards.length < 2 && 
+                    !card.classList.contains('flipped') && 
+                    !card.classList.contains('matched')) {
+                    
+                    card.classList.add('flipped');
+                    flippedCards.push(card);
+
+                    if (flippedCards.length === 2) {
+                        setTimeout(checkForMatch, 1000);
+                    }
+                }
+            }
+
+            function checkForMatch() {
+                const [card1, card2] = flippedCards;
+
+                if (card1.dataset.pair === card2.dataset.pair) {
+                    card1.classList.add('matched');
+                    card2.classList.add('matched');
+                    matchedCards.push(card1, card2);
+
+                    if (matchedCards.length === cards.length) {
+                        alert('Parabéns! Você venceu!');
+                    }
+                } else {
+                    card1.classList.remove('flipped');
+                    card2.classList.remove('flipped');
+                }
+
+                flippedCards = [];
+            }
+        });
+    </script>
 </body>
 </html>
