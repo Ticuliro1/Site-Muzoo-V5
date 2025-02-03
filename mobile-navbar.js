@@ -245,9 +245,11 @@ resetButton.addEventListener('click', resetGame);
 
 function handleGuess() {
     const userGuess = Number(guessInput.value);
+    alert("buceta");
 
     if (userGuess < 1 || userGuess > 100) {
         resultMessage.textContent = 'Por favor, digite um número entre 1 e 100.';
+        alert("penis");
     } else if (userGuess === randomNumber) {
         resultMessage.textContent = `Parabéns! Você adivinhou o número ${randomNumber}!`;
         guessButton.disabled = true;
