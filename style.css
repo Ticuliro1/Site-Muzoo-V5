@@ -4,14 +4,16 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
-body {
+body, html{
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('2531137-ilustracao-de-vista-do-riacho-montanhas-ceu-e-floresta-de-pinheiros-gratis-vetor.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  overflow-x: hidden;
 
 }
 
