@@ -623,7 +623,7 @@ a.button:hover {
 
 .row {
   background-color: #d6cccc;
-  height: 380px;
+  height: 540px;
 }
 
 .capa-jogos {
@@ -716,7 +716,7 @@ h1 {
 
 .botao-jogo {
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: 20px;
   margin-bottom: 15px;
   background-color: #2d4918;
   border-radius: 15px;
