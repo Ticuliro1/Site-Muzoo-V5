@@ -226,7 +226,3 @@ function collision(head, array) {
     }
     return false;
 }
-
-
-// jogo de adivinhação 
-

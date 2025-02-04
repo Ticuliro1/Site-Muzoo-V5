@@ -13,12 +13,8 @@ body, html{
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-<<<<<<< HEAD
   overflow-x: hidden;
-
-=======
   height: 100vh;
->>>>>>> d72c33322d2592ffd4f802b492b3e104e91add4b
 }
   div.branco
   
@@ -845,3 +841,4 @@ ul li {
 .image-grid img:hover {
   transform: scale(1.05);
 }
+
