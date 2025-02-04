@@ -29,7 +29,6 @@
         
 .jogo-cobrinha {
   font-family: Arial, sans-serif;
-  display: flex;
   flex-direction: column;
   justify-content: center;
   background-color: #f0f0f0;
@@ -40,10 +39,14 @@ h1 {
 }
 
 .game-area {
-  display: flex;
+   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #b6b6b6;
+  width: 800px;
+    height: 600px;
+    margin: auto;
+    border: 1px solid #000;
 }
 
 .botao-jogo {
@@ -57,7 +60,7 @@ h1 {
 canvas {
   background-color: #fff;
   border: 1px solid #000;
-  background-image: url('background-snake-game.png');
+  background-image: url('/Jogos/fundo_da_croba.webp');
   background-size: cover;
 }
 
@@ -72,7 +75,7 @@ canvas {
         <button id="startButton" class="botao-jogo">Começar</button>
         <button id="restartButton" class="botao-jogo" style="display: none;">Reiniciar</button>
         <p class="score">Score: <span id="score">0</span></p>
-        <canvas id="gameCanvas" width="500" height="500">
+        <canvas id="gameCanvas" width="400" height="400">
         </canvas> 
     </div> 
         <script src="../mobile-navbar.js"></script>

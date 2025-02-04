@@ -103,6 +103,18 @@ cards.forEach(card => card.addEventListener('click', flipCard));
 
 /*jogo da cobrinha */
 
+
+window.onload = function() {
+    openGameWindow();
+};
+
+function openGameWindow() {
+    let gameWindowUrl = '/Jogos/jogo-da-cobrinha.html';
+
+    // Abra a nova janela
+    window.open(gameWindowUrl, 'gameWindow', 'width=800,height=600');
+}
+
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 const startButton = document.getElementById("startButton");
@@ -155,6 +167,48 @@ function restartGame() {
 }
 
 document.addEventListener("keydown", changeDirection);
+
+// Adicionar eventos de toque
+canvas.addEventListener("touchstart", handleTouchStart);
+canvas.addEventListener("touchmove", handleTouchMove);
+
+let xDown = null;
+let yDown = null;
+
+function handleTouchStart(evt) {
+    const firstTouch = evt.touches[0];
+    xDown = firstTouch.clientX;
+    yDown = firstTouch.clientY;
+}
+
+function handleTouchMove(evt) {
+    if (!xDown || !yDown) {
+        return;
+    }
+
+    let xUp = evt.touches[0].clientX;
+    let yUp = evt.touches[0].clientY;
+
+    let xDiff = xDown - xUp;
+    let yDiff = yDown - yUp;
+
+    if (Math.abs(xDiff) > Math.abs(yDiff)) {
+        if (xDiff > 0 && direction !== "right") {
+            direction = "left";
+        } else if (xDiff < 0 && direction !== "left") {
+            direction = "right";
+        }
+    } else {
+        if (yDiff > 0 && direction !== "down") {
+            direction = "up";
+        } else if (yDiff < 0 && direction !== "up") {
+            direction = "down";
+        }
+    }
+
+    xDown = null;
+    yDown = null;
+}
 
 function changeDirection(event) {
     if (event.keyCode === 37 && direction !== "right") {
