@@ -30,8 +30,7 @@
 .jogo-cobrinha {
   font-family: Arial, sans-serif;
   flex-direction: column;
-  justify-content: center;
-  background-color: #f0f0f0;
+  display: flex;
 }
 
 h1 {
@@ -42,7 +41,6 @@ h1 {
    display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #b6b6b6;
   
 }
 
@@ -61,6 +59,7 @@ canvas {
   background-size: cover;
 }
 
+       
 .score {
   font-size: 20px;
   margin-bottom: 20px;
@@ -69,7 +68,7 @@ canvas {
 
       <h1>Jogo da Cobrinha</h1> 
       <div class="game-area"> 
-        <button id="startButton" class="botao-jogo" onclick="abrirJogo()">Começar</button>
+        <button id="startButton" class="botao-jogo" id="abrirModal">Começar</button>
         <button id="restartButton" class="botao-jogo" style="display: none;">Reiniciar</button>
         <p class="score">Score: <span id="score">0</span></p>
        <div class="viadagem"><canvas id="gameCanvas" width="400" height="400">
