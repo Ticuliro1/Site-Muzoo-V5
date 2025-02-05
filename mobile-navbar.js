@@ -103,18 +103,6 @@ cards.forEach(card => card.addEventListener('click', flipCard));
 
 /*jogo da cobrinha */
 
-
-window.onload = function() {
-    openGameWindow();
-};
-
-function openGameWindow() {
-    let gameWindowUrl = '/Jogos/jogo-da-cobrinha.html';
-
-    // Abra a nova janela
-    window.open(gameWindowUrl, 'gameWindow', 'width=800,height=600');
-}
-
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 const startButton = document.getElementById("startButton");

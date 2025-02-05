@@ -43,10 +43,7 @@ h1 {
   flex-direction: column;
   align-items: center;
   background-color: #b6b6b6;
-  width: 800px;
-    height: 600px;
-    margin: auto;
-    border: 1px solid #000;
+  
 }
 
 .botao-jogo {
@@ -72,11 +69,11 @@ canvas {
 
       <h1>Jogo da Cobrinha</h1> 
       <div class="game-area"> 
-        <button id="startButton" class="botao-jogo">Começar</button>
+        <button id="startButton" class="botao-jogo" onclick="abrirJogo()">Começar</button>
         <button id="restartButton" class="botao-jogo" style="display: none;">Reiniciar</button>
         <p class="score">Score: <span id="score">0</span></p>
-        <canvas id="gameCanvas" width="400" height="400">
-        </canvas> 
+       <div class="viadagem"><canvas id="gameCanvas" width="400" height="400">
+        </canvas> </div> 
     </div> 
         <script src="../mobile-navbar.js"></script>
 
@@ -106,7 +103,7 @@ canvas {
                       <span><b>Links</b></span>
                       <p><a href="index.html">Início</a></li></p>
                       <p><a href="Jogos/jogos.html">Jogos </a></li></p>
-                      <p><a href="#sobre">Sobre</a></p>
+                      <p><a href="sobre.html">Sobre</a></p>
                   </div>
               </div>
       
