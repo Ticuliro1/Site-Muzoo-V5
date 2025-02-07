@@ -199,13 +199,15 @@ function handleTouchMove(evt) {
 }
 
 function changeDirection(event) {
-    if (event.keyCode === 37 && direction !== "right") {
+    const key = event.key.toLowerCase(); // Converte a tecla pressionada para minúscula
+
+    if ((key === "a" || event.keyCode === 37) && direction !== "right") {
         direction = "left";
-    } else if (event.keyCode === 38 && direction !== "down") {
+    } else if ((key === "w" || event.keyCode === 38) && direction !== "down") {
         direction = "up";
-    } else if (event.keyCode === 39 && direction !== "left") {
+    } else if ((key === "d" || event.keyCode === 39) && direction !== "left") {
         direction = "right";
-    } else if (event.keyCode === 40 && direction !== "up") {
+    } else if ((key === "s" || event.keyCode === 40) && direction !== "up") {
         direction = "down";
     }
 }
@@ -268,5 +270,3 @@ function collision(head, array) {
     }
     return false;
 }
-
-
