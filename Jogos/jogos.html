@@ -4,30 +4,23 @@
 <head class="head-jogos">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title> Página de jogos do Muzoo </title>
+  <title>Página de jogos do Muzoo</title>
   <link rel="stylesheet" href="../style.css" />
-</head>
-
-<body class="body-jogos">
   <style>
-    /*pagina de jogos */
-
-    .body-jogos {
-      font-family: Arial, sans-serif;
-      justify-content: center;
-      align-items: center;
-    }
+    /* Estilos da página de jogos */
 
     .container {
       color: rgb(0, 0, 0);
-      border-top: #3b5e1f;
-
     }
 
     .container-jogos {
       display: flex;
-      justify-content: space-around;
-      width: 80%;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
     }
 
     .game {
@@ -35,10 +28,9 @@
       border: 1px solid #ccc;
       border-radius: 10px;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-      padding: 8px;
+      padding: 16px;
       text-align: center;
-      width: 80%;
-      margin-top: 60px;
+      width: 250px; /* Largura fixa para cada jogo */
     }
 
     .game a {
@@ -60,20 +52,57 @@
       text-align: center;
       margin-top: 20px;
       font-family: Beginnings;
-    }
-
-    .row {
-      background-color: #d6cccc;
-      height: 540px;
+      color: #000;
     }
 
     .capa-jogos {
       max-width: 100%;
       border-radius: 10px 10px 0 0;
     }
+
+    .branco {
+      background-color: #d6cccc;
+      min-height: 100vh;
+    }
+
+    /* Estilos do rodapé */
+    .rodape {
+      background-color: #3b5e1f;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .rodape-div {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .rodape-div-1,
+    .rodape-div-2,
+    .rodape-div-3,
+    .rodape-div-4 {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .rodape-direitos {
+      margin-top: 20px;
+      font-size: 14px;
+    }
+
+    h1{
+      font-size: 60px;
+    }
   </style>
-  <header>
-    <div class="branco">
+</head>
+
+<body class="body-jogos">
+  <div class="branco">
+    <header>
       <nav>
         <a class="logo" href="../index.html"><img src="../Logo Muzoo V2.png" width="85px"></a>
         <div class="mobile-menu">
@@ -85,81 +114,67 @@
           <li><a href="../index.html">Início</a></li>
           <li><a href="../sobre.html">Sobre</a></li>
           <li><a href="../Feedback.html">Feedback</a></li>
-          <li><a href="jogos.html">Jogos </a></li>
+          <li><a href="jogos.html">Jogos</a></li>
         </ul>
         <a class="ifmg-logo" href="https://bambui.ifmg.edu.br/portal/portal/portal/portal/de"><img
             src="../4ae281f4-bc79-43d3-ac26-990f22e9ba95.png" width="85px"></a>
       </nav>
-      </header>
-      <div class="containers">
-      <div class="row">
-      <h1 class="titulo-jogos"> Jogos</h1>
+    </header>
+    <div class="containers">
+      <h1 class="titulo-jogos">Jogos</h1>
       <div class="container-jogos">
         <div class="game">
-          <a href="jogo-da-memoria.html"> <img src="capa-jogo-da-memoria.jfif" alt="Jogo 1" class="capa-jogos"> </a>
+          <a href="jogo-da-memoria.html"><img src="capa-jogo-da-memoria.jfif" alt="Jogo 1" class="capa-jogos"></a>
           <h2 class="titulo-jogos">Jogo da Memória</h2>
           <a href="jogo-da-memoria.html">Jogar</a>
         </div>
 
         <div class="game">
-          <a href="jogo-da-cobrinha.html"><img src="capa-cobrinha.jfif" alt="Jogo 2" class="capa-jogos"> </a>
+          <a href="jogo-da-cobrinha.html"><img src="capa-cobrinha.jfif" alt="Jogo 2" class="capa-jogos"></a>
           <h2 class="titulo-jogos">Jogo da Cobrinha</h2>
-          <a href="jogo-da-cobrinha.html" class="jogos"> Jogar </a>
+          <a href="jogo-da-cobrinha.html">Jogar</a>
         </div>
 
         <div class="game">
-          <a href="jogo-de-adivinhacaos.html"><img src="capa-jogo-adivinhacao.jfif" alt="Jogo 3" class="capa-jogos">
-          </a>
-          <h2 class="titulo-jogos">Jogo de adivinhação </h2>
-          <a href="jogo-de-adivinhacaos.html" class="jogos"> Jogar </a>
+          <a href="jogo-de-adivinhacaos.html"><img src="capa-jogo-adivinhacao.jfif" alt="Jogo 3" class="capa-jogos"></a>
+          <h2 class="titulo-jogos">Jogo de Adivinhação</h2>
+          <a href="jogo-de-adivinhacaos.html">Jogar</a>
         </div>
-
       </div>
-      </div>
-      <footer class="rodape" id="contato">
+    </div>
+    <footer class="rodape" id="contato">
       <div class="rodape-div">
-
         <div class="rodape-div-1">
           <div class="rodape-div-1-coluna">
-
             <span><b>LOGO</b></span>
             <p>SIA Trecho 5 lote 000 bloco z sala 900 - IFMG, Bambuí - DF, 70000-010</p>
           </div>
         </div>
-
         <div class="rodape-div-2">
           <div class="rodape-div-2-coluna">
-
             <span><b>Contatos</b></span>
             <p>contato@na.na</p>
             <p>+55 63 99200-0000</p>
           </div>
         </div>
-
         <div class="rodape-div-3">
           <div class="rodape-div-3-coluna">
-
             <span><b>Links</b></span>
-            <p><a href="index.html">Início</a></li>
-            </p>
-            <p><a href="Jogos/jogos.html">Jogos </a></li>
-            </p>
-            <p><a href="#sobre">Sobre</a></p>
+            <p><a href="../index.html">Início</a></p>
+            <p><a href="jogos.html">Jogos</a></p>
+            <p><a href="../sobre.html">Sobre</a></p>
           </div>
         </div>
-
         <div class="rodape-div-4">
           <div class="rodape-div-4-coluna">
-
             <span><b>Outros</b></span>
             <p>Políticas de Privacidade</p>
           </div>
         </div>
-
       </div>
       <p class="rodape-direitos">Copyright © 2023 – Todos os Direitos Reservados.</p>
-      </footer>
-    </div>
+    </footer>
+  </div>
 </body>
 
 </html>
