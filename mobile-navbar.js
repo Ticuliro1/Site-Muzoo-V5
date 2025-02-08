@@ -270,3 +270,38 @@ function collision(head, array) {
     }
     return false;
 }
+
+
+
+/* termo muzoo */
+
+const animals = ["cachorro do mato", "taxidermia", "quati", "sagui", "beija flor", "jaguatirica", "capivara", "cobra coral", "cobra coral falsa", "jacare", "jacare do papo amarelo", "mico-estrela", "bem te vi", "tucano", "acaua"];
+const randomAnimal = animals[Math.floor(Math.random() * animals.length)];
+let attempts = 0;
+const maxAttempts = 50;
+
+document.getElementById("submit").addEventListener("click", function() {
+    const guess = document.getElementById("guess").value.toLowerCase();
+    document.getElementById("guess").value = '';
+
+    if (attempts < maxAttempts) {
+        attempts++;
+        let feedback = '';
+
+        if (guess === randomAnimal) {
+            feedback = "Parabéns! Você adivinhou a palavra!"
+        } else {
+            feedback = `Tentativa ${attempts}: ${guess} - Não é a palavra:(`;
+            if (randomAnimal.includes(guess)) {
+                feedback += " Algumas letras estão corretas!";
+            }
+        }
+
+        document.getElementById("feedback").innerText = feedback;
+        document.getElementById("attempts").innerText = `Tentativas restantes: ${maxAttempts - attempts}`;
+
+        if (attempts === maxAttempts) {
+            document.getElementById("feedback").innerText = `Você perdeu! A palavra era: ${randomAnimal}`;
+        }
+    }
+});
