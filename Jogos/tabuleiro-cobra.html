@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jogo da cobrinha </title>
+    <link rel="stylesheet" href="../style.css" />
+</head>
+<body>
+    <style>
+      
+.game-area {
+   display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(240, 248, 255, 0);
+  
+}
+canvas {
+  border: 1px solid #ffffff00;
+  background-image: url('/Jogos/fundo_da_croba.webp');
+  background-size: cover;
+}
+
+.botao-jogo {
+  padding: 10px 20px;
+  font-size: 20px;
+  margin-bottom: 15px;
+  background-color: #2d4918;
+  border-radius: 15px;
+}
+       
+.score {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+    </style>
+  <div class="game-area"> 
+    <button id="startButton"  class="botao-jogo" href="tabuleiro-cobra.html"> Começar</button>
+    <button id="restartButton" class="botao-jogo" style="display: none;">Reiniciar</button>
+    <p class="score">Score: <span id="score">0</span></p>
+   <div class="viadagem"><canvas id="gameCanvas" width="400" height="400">
+    </canvas> </div> 
+</div> 
+    <script src="../mobile-navbar.js"></script>
+</body>
+</html>

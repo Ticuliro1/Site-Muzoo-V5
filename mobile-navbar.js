@@ -156,14 +156,58 @@ function restartGame() {
 
 document.addEventListener("keydown", changeDirection);
 
+// Adicionar eventos de toque
+canvas.addEventListener("touchstart", handleTouchStart);
+canvas.addEventListener("touchmove", handleTouchMove);
+
+let xDown = null;
+let yDown = null;
+
+function handleTouchStart(evt) {
+    const firstTouch = evt.touches[0];
+    xDown = firstTouch.clientX;
+    yDown = firstTouch.clientY;
+}
+
+function handleTouchMove(evt) {
+    if (!xDown || !yDown) {
+        return;
+    }
+
+    let xUp = evt.touches[0].clientX;
+    let yUp = evt.touches[0].clientY;
+
+    let xDiff = xDown - xUp;
+    let yDiff = yDown - yUp;
+
+    if (Math.abs(xDiff) > Math.abs(yDiff)) {
+        if (xDiff > 0 && direction !== "right") {
+            direction = "left";
+        } else if (xDiff < 0 && direction !== "left") {
+            direction = "right";
+        }
+    } else {
+        if (yDiff > 0 && direction !== "down") {
+            direction = "up";
+        } else if (yDiff < 0 && direction !== "up") {
+            direction = "down";
+        }
+    }
+
+    xDown = null;
+    yDown = null;
+}
+
 function changeDirection(event) {
-    if (event.keyCode === 37 && direction !== "right") {
+    const key = event.key.toLowerCase(); // Converte a tecla pressionada para minúscula
+
+    if ((key === "a" || event.keyCode === 37) && direction !== "right") {
         direction = "left";
-    } else if (event.keyCode === 38 && direction !== "down") {
+    } else if ((key === "w" || event.keyCode === 38) && direction !== "down") {
         direction = "up";
-    } else if (event.keyCode === 39 && direction !== "left") {
+    } else if ((key === "d" || event.keyCode === 39) && direction !== "left") {
         direction = "right";
-    } else if (event.keyCode === 40 && direction !== "up") {
+    } else if ((key === "s" || event.keyCode === 40) && direction !== "up") {
         direction = "down";
     }
 }
@@ -228,42 +272,36 @@ function collision(head, array) {
 }
 
 
-// jogo de adivinhação 
 
-// Seleciona os elementos HTML necessários
-const guessInput = document.getElementById('guessInput');
-const guessButton = document.getElementById('guessButton');
-const resultMessage = document.getElementById('resultMessage');
-const resetButton = document.getElementById('resetButton');
+/* termo muzoo */
 
-// Gera um número aleatório entre 1 e 100
-let randomNumber = Math.floor(Math.random() * 100) + 1;
-console.log("Número pensado por Jack:", randomNumber); 
+const animals = ["cachorro do mato", "taxidermia", "quati", "sagui", "beija flor", "jaguatirica", "capivara", "cobra coral", "cobra coral falsa", "jacare", "jacare do papo amarelo", "mico-estrela", "bem te vi", "tucano", "acaua"];
+const randomAnimal = animals[Math.floor(Math.random() * animals.length)];
+let attempts = 0;
+const maxAttempts = 50;
 
-guessButton.addEventListener('click', handleGuess);
-resetButton.addEventListener('click', resetGame);
+document.getElementById("submit").addEventListener("click", function() {
+    const guess = document.getElementById("guess").value.toLowerCase();
+    document.getElementById("guess").value = '';
 
-function handleGuess() {
-    const userGuess = Number(guessInput.value);
+    if (attempts < maxAttempts) {
+        attempts++;
+        let feedback = '';
 
-    if (userGuess < 1 || userGuess > 100) {
-        resultMessage.textContent = 'Por favor, digite um número entre 1 e 100.';
-    } else if (userGuess === randomNumber) {
-        resultMessage.textContent = `Parabéns! Você adivinhou o número ${randomNumber}!`;
-        guessButton.disabled = true;
-    } else if (Math.abs(userGuess - randomNumber) <= 10) {
-        resultMessage.textContent = 'Você está bem perto!';
-    } else if (userGuess < randomNumber) {
-        resultMessage.textContent = 'Tente um número maior.';
-    } else {
-        resultMessage.textContent = 'Tente um número menor.';
+        if (guess === randomAnimal) {
+            feedback = "Parabéns! Você adivinhou a palavra!"
+        } else {
+            feedback = `Tentativa ${attempts}: ${guess} - Não é a palavra:(`;
+            if (randomAnimal.includes(guess)) {
+                feedback += " Algumas letras estão corretas!";
+            }
+        }
+
+        document.getElementById("feedback").innerText = feedback;
+        document.getElementById("attempts").innerText = `Tentativas restantes: ${maxAttempts - attempts}`;
+
+        if (attempts === maxAttempts) {
+            document.getElementById("feedback").innerText = `Você perdeu! A palavra era: ${randomAnimal}`;
+        }
     }
-}
-
-function resetGame() {
-    randomNumber = Math.floor(Math.random() * 100) + 1;
-    console.log("Novo número pensado por Jack:", randomNumber); 
-    guessInput.value = '';
-    resultMessage.textContent = '';
-    guessButton.disabled = false;
-}
+});

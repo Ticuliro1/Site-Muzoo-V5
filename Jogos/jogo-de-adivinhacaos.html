@@ -3,80 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jogo de Adivinhação </title>
+    <title>Jogo de Adivinhação</title>
     <link rel="stylesheet" href="../style.css" />
 </head>
+<style>
+    img:hover{
+        transform: scale(1.2);
+    }
+
+    img{
+        transition: .3s;
+    }
+    hr{
+        background-color: rgb(110, 167, 108);
+        border: 0;
+    }
+</style>
 <body class="body-adivinhacao">
     <header>
         <nav>
-          <a class="logo" href="../index.html"><img src="../Logo Muzoo V2.png" width="85px"></a>
-          <div class="mobile-menu">
-            <div class="line1"></div>
-            <div class="line2"></div>
-            <div class="line3"></div>
-          </div>
-          <ul class="nav-list">
-            <li><a href="../index.html">Início</a></li>
-            <li><a href="#">Sobre</a></li>
-            <li><a href="Feedback.html">Feedback</a></li>
-            <li><a href="jogos.html">Jogos </a></li>
-            <li><a href="#">Acessibilidade</a></li>
-          </ul>
-          <a class="ifmg-logo" href="https://bambui.ifmg.edu.br/portal/portal/portal/portal/de"><img src="../4ae281f4-bc79-43d3-ac26-990f22e9ba95.png" width="85px"></a>
+            <a class="logo" href="../index.html"><img src="../Logo Muzoo V2.png" width="85px"></a>
+            <ul class="nav-list">
+                <li><a href="../index.html">Início</a></li>
+                <li><a href="#">Sobre</a></li>
+                <li><a href="Feedback.html">Feedback</a></li>
+                <li><a href="jogos.html">Jogos</a></li>
+                <li><a href="#">Acessibilidade</a></li>
+            </ul>
         </nav>
-      </header>
-      
-      <h1 class="adiv">Jogo de Adivinhação</h1> 
-      <div class="adivinhacao-container"> 
-        <img src="../jacareparte1.png" alt="Jacaré Jack" class="character"> 
-        <p>O Jacaré Jack está pensando em um número entre 1 e 100. Você consegue adivinhar?</p> 
+    </header>
+    <hr>
+    <h1 class="adiv">Jogo de Adivinhação</h1>
+    <hr>
+    <div class="adivinhacao-container">
+        <img src="../jacareparte1.png" alt="Jacaré Jack" class="character">
+        <p>O Jacaré Jack está pensando em um número entre 1 e 100. Você tem 10 tentativas para adivinhar ele!</p>
         <input type="number" id="guessInput" placeholder="Digite seu palpite" min="1" max="100">
-        <button id="guessButton">Adivinhar</button> 
+        <button id="guessButton">Adivinhar</button>
         <p id="resultMessage"></p>
-        <button id="resetButton">Reiniciar</button> </div> 
+        <p id="attemptsLeft">Tentativas restantes: 10</p>
+        <button id="resetButton">Reiniciar</button>
+    </div>
+    
+    <footer class="rodape" id="contato">
+        <div class="rodape-div">
+            <div class="rodape-div-1">
+                <div class="rodape-div-1-coluna">
+                    <span><b>LOGO</b></span>
+                    <p>SIA Trecho 5 lote 000 bloco z sala 900 - IFMG, Bambuí - DF, 70000-010</p>
+                </div>
+            </div>
+            <div class="rodape-div-2">
+                <div class="rodape-div-2-coluna">
+                    <span><b>Contatos</b></span>
+                    <p>contato@na.na</p>
+                    <p>+55 63 99200-0000</p>
+                </div>
+            </div>
+            <div class="rodape-div-3">
+                <div class="rodape-div-3-coluna">
+                    <span><b>Links</b></span>
+                    <p><a href="index.html">Início</a></p>
+                    <p><a href="Jogos/jogos.html">Jogos</a></p>
+                    <p><a href="#sobre">Sobre</a></p>
+                </div>
+            </div>
+            <div class="rodape-div-4">
+                <div class="rodape-div-4-coluna">
+                    <span><b>Outros</b></span>
+                    <p>Políticas de Privacidade</p>
+                </div>
+            </div>
+        </div>
+        <p class="rodape-direitos">Copyright © 2023 – Todos os Direitos Reservados.</p>
+    </footer>
+    
+    <script>
+        const guessInput = document.getElementById('guessInput');
+        const guessButton = document.getElementById('guessButton');
+        const resultMessage = document.getElementById('resultMessage');
+        const attemptsLeft = document.getElementById('attemptsLeft');
+        const resetButton = document.getElementById('resetButton');
 
-        <script src="../mobile-navbar.js"></script>
+        let randomNumber = Math.floor(Math.random() * 100) + 1;
+        let attempts = 10;
+        console.log("Número pensado por Jack:", randomNumber);
 
-        <footer class="rodape" id="contato">
-          <div class="rodape-div">
-      
-              <div class="rodape-div-1">
-                  <div class="rodape-div-1-coluna">
-      
-                      <span><b>LOGO</b></span>
-                      <p>SIA Trecho 5 lote 000 bloco z sala 900 - IFMG, Bambuí - DF, 70000-010</p>
-                  </div>
-              </div>
-      
-              <div class="rodape-div-2">
-                  <div class="rodape-div-2-coluna">
-      
-                      <span><b>Contatos</b></span>
-                      <p>contato@na.na</p>
-                      <p>+55 63 99200-0000</p>
-                  </div>
-              </div>
-      
-              <div class="rodape-div-3">
-                  <div class="rodape-div-3-coluna">
-      
-                      <span><b>Links</b></span>
-                      <p><a href="index.html">Início</a></li></p>
-                      <p><a href="Jogos/jogos.html">Jogos </a></li></p>
-                      <p><a href="#sobre">Sobre</a></p>
-                  </div>
-              </div>
-      
-              <div class="rodape-div-4">
-                  <div class="rodape-div-4-coluna">
-      
-                      <span><b>Outros</b></span>
-                      <p>Políticas de Privacidade</p>
-                  </div>
-              </div>
-      
-          </div>
-          <p class="rodape-direitos">Copyright © 2023 – Todos os Direitos Reservados.</p>
-      </footer>
+        guessButton.addEventListener('click', handleGuess);
+        resetButton.addEventListener('click', resetGame);
+
+        function handleGuess() {
+            const userGuess = Number(guessInput.value);
+
+            if (userGuess < 1 || userGuess > 100 || isNaN(userGuess)) {
+                resultMessage.textContent = '⚠️ Digite um número entre 1 e 100!';
+                return;
+            }
+
+            attempts--;
+            attemptsLeft.textContent = `Tentativas restantes: ${attempts}`;
+
+            if (userGuess === randomNumber) {
+                resultMessage.textContent = `🎉 Parabéns! Você adivinhou o número ${randomNumber}!`;
+                guessButton.disabled = true;
+            } else if (attempts === 0) {
+                resultMessage.textContent = `💀 Suas tentativas acabaram! O número era ${randomNumber}.`;
+                guessButton.disabled = true;
+            } else if (Math.abs(userGuess - randomNumber) <= 5) {
+                resultMessage.textContent = '🔥 Você está muito perto!';
+            } else if (userGuess < randomNumber) {
+                resultMessage.textContent = '📈 Tente um número maior!';
+            } else {
+                resultMessage.textContent = '📉 Tente um número menor!';
+            }
+        }
+
+        function resetGame() {
+            randomNumber = Math.floor(Math.random() * 100) + 1;
+            attempts = 10;
+            console.log("Novo número pensado por Jack:", randomNumber);
+            guessInput.value = '';
+            resultMessage.textContent = '';
+            attemptsLeft.textContent = `Tentativas restantes: ${attempts}`;
+            guessButton.disabled = false;
+        }
+    </script>
 </body>
 </html>
