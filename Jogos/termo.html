@@ -1,95 +1,298 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Termo Muzoo </title>
-    <link rel="stylesheet" href="../style.css" />
+<html lang="pt-br">
+
+<head class="head-jogos">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Termo Muzoo</title>
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    /* Estilos específicos do TERMO */
+    h1{
+      text-align: center;
+      font-family: Play;
+      font-size: 40px;
+    }
+    .game-container {
+      max-width: 600px;
+      margin: 20px auto;
+      padding: 20px;
+      text-align: center;
+    }
+
+    #board {
+      display: grid;
+      grid-template-rows: repeat(6, 1fr);
+      gap: 3px; /* Reduzi o espaçamento vertical entre as linhas */
+      margin: 20px auto;
+      justify-content: center;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 5px; /* Espaçamento horizontal entre as células */
+      background-color: #8a8a8a;
+      box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.418);
+      height: 60px;
+    }
+
+    .cell {
+      width: 50px;
+      height: 50px;
+      border: 2px solid #585858;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      background-color: #fff;
+      box-shadow: 0px 0px 5px 0px rgb(0, 0, 0);
+    }
+
+    .cell.correct {
+      background-color: #6aaa64;
+      color: white;
+    }
+
+    .cell.present {
+      background-color: #c9b458;
+      color: white;
+    }
+
+    .cell.absent {
+      background-color: #787c7e;
+      color: white;
+    }
+
+    #message {
+      margin: 20px 0;
+      font-size: 1.2rem;
+      height: 20px;
+    }
+
+    #resetButton {
+      padding: 10px 20px;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      background-color: #6aaa64;
+      color: white;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+    h2{
+      font-family: Nexa;
+      font-size: 20px;
+    }
+
+    /* Ajustes para dispositivos móveis */
+    @media (max-width: 600px) {
+      .cell {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+      }
+
+      #board {
+        gap: 0px; /* Espaçamento vertical ainda menor no mobile */
+      }
+
+      .row {
+        gap: 5px; /* Espaçamento horizontal menor no mobile */
+        height: 50px;
+      }
+    }
+  </style>
 </head>
-<body>
-    <div class="branco">
-        <header>
-          <nav>
-            <a class="logo" href="../index.html"><img src="../Logo Muzoo V2.png" width="85px"></a>
-            <div class="mobile-menu">
-              <div class="line1"></div>
-              <div class="line2"></div>
-              <div class="line3"></div>
-            </div>
-            <ul class="nav-list">
-              <li><a href="../index.html">Início</a></li>
-              <li><a href="../sobre.html">Sobre</a></li>
-              <li><a href="../Feedback.html">Feedback</a></li>
-              <li><a href="jogos.html">Jogos</a></li>
-            </ul>
-            <a class="ifmg-logo" href="https://bambui.ifmg.edu.br/portal/portal/portal/portal/de"><img
-                src="../4ae281f4-bc79-43d3-ac26-990f22e9ba95.png" width="85px"></a>
-          </nav>
-        </header>
 
-        <style>
-            body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #f0f0f0;
-}
-#game {
-    margin: 20px auto;
-    padding: 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-p{
-    text-align: left;
-}
-        </style>
-    
+<body class="body-jogos">
+  <div class="branco">
+    <header>
+      <nav>
+        <a class="logo" href="../index.html"><img src="../Logo Muzoo V2.png" width="85px"></a>
+        <div class="mobile-menu">
+          <div class="line1"></div>
+          <div class="line2"></div>
+          <div class="line3"></div>
+        </div>
+        <ul class="nav-list">
+          <li><a href="../index.html">Início</a></li>
+          <li><a href="../sobre.html">Sobre</a></li>
+          <li><a href="../Feedback.html">Feedback</a></li>
+          <li><a href="jogos.html">Jogos</a></li>
+        </ul>
+        <a class="ifmg-logo" href="https://bambui.ifmg.edu.br/portal/portal/portal/portal/de"><img
+            src="../4ae281f4-bc79-43d3-ac26-990f22e9ba95.png" width="85px"></a>
+      </nav>
+    </header>
 
-    <h1>Adivinhe a Palavra!</h1>
-    <p>Dica: É relacionado com o Muzoo</p>
-    <div id="game">
-        <input type="text" id="guess" maxlength="20" placeholder="Digite um animal">
-        <button id="submit">Enviar</button>
-        <div id="feedback"></div>
-        <div id="attempts"></div>
+    <div class="game-container">
+      <h1>TERMO do Muzoo</h1>
+      <h2>Dica: animais do Muzoo</h2>
+      <div id="board"></div>
+      <div id="message"></div>
+      <button id="resetButton">Reiniciar Jogo</button>
     </div>
-    <script src="../mobile-navbar.js"></script>
 
+    <footer class="rodape" id="contato">
+      <div class="rodape-div">
+        <div class="rodape-div-1">
+          <div class="rodape-div-1-coluna">
+            <span><b>LOGO</b></span>
+            <p>SIA Trecho 5 lote 000 bloco z sala 900 - IFMG, Bambuí - DF, 70000-010</p>
+          </div>
+        </div>
+        <div class="rodape-div-2">
+          <div class="rodape-div-2-coluna">
+            <span><b>Contatos</b></span>
+            <p>contato@na.na</p>
+            <p>+55 63 99200-0000</p>
+          </div>
+        </div>
+        <div class="rodape-div-3">
+          <div class="rodape-div-3-coluna">
+            <span><b>Links</b></span>
+            <p><a href="../index.html">Início</a></p>
+            <p><a href="jogos.html">Jogos</a></p>
+            <p><a href="../sobre.html">Sobre</a></p>
+          </div>
+        </div>
+        <div class="rodape-div-4">
+          <div class="rodape-div-4-coluna">
+            <span><b>Outros</b></span>
+            <p>Políticas de Privacidade</p>
+          </div>
+        </div>
+      </div>
+      <p class="rodape-direitos">Copyright © 2023 – Todos os Direitos Reservados.</p>
+    </footer>
+  </div>
 
+  <script>
+    const BOARD_SIZE = 5;
+    const MAX_ATTEMPTS = 6;
+    let currentRow = 0;
+    let currentCell = 0;
+    let gameOver = false;
+    let secretWord = '';
 
+    const board = document.getElementById('board');
+    const message = document.getElementById('message');
+    const resetButton = document.getElementById('resetButton');
 
-        <footer class="rodape" id="contato">
-            <div class="rodape-div">
-              <div class="rodape-div-1">
-                <div class="rodape-div-1-coluna">
-                  <span><b>LOGO</b></span>
-                  <p>SIA Trecho 5 lote 000 bloco z sala 900 - IFMG, Bambuí - DF, 70000-010</p>
-                </div>
-              </div>
-              <div class="rodape-div-2">
-                <div class="rodape-div-2-coluna">
-                  <span><b>Contatos</b></span>
-                  <p>contato@na.na</p>
-                  <p>+55 63 99200-0000</p>
-                </div>
-              </div>
-              <div class="rodape-div-3">
-                <div class="rodape-div-3-coluna">
-                  <span><b>Links</b></span>
-                  <p><a href="../index.html">Início</a></p>
-                  <p><a href="jogos.html">Jogos</a></p>
-                  <p><a href="../sobre.html">Sobre</a></p>
-                </div>
-              </div>
-              <div class="rodape-div-4">
-                <div class="rodape-div-4-coluna">
-                  <span><b>Outros</b></span>
-                  <p>Políticas de Privacidade</p>
-                </div>
-              </div>
-            </div>
-            <p class="rodape-direitos">Copyright © 2023 – Todos os Direitos Reservados.</p>
-          </footer>
+    const wordList = [
+      "ACAUÃ", "ARARA", "CANIN", "BEIJA", "TESOU", "BEMTE", "BIGUÁ", "CANAR", "TERRA", "COLEI",
+      "CORRU", "CORUJ", "BURAQ", "CURIC", "GARÇA", "BOIAD", "JACUR", "MARIT", "PINTS", "VENEZ",
+      "POMBÃ", "QUIRI", "ROLIN", "SANHA", "CINZE", "SERIE", "SURIR", "TUCAN", "AÇU", "URUBU",
+      "PRETO", "CACHO", "MATO", "CAMUN", "CAPIV", "CATET", "FURÃO", "PEQUE", "GAMBÁ", "ORELH",
+      "BRANC", "IRARA", "JAGUA", "JARAT", "LOBO", "GUARÁ", "LONTR", "PACA", "PORQU", "ÍNDIA",
+      "QUATI", "SAGUI", "TUFOS", "PRETO", "MICO", "ESTRE", "TAMAN", "BANDE", "MIRIM", "TATU",
+      "GALIN", "PEBA", "COBRA", "CORAL", "FALSA", "JACAR", "PAPO", "AMARE", "TEIÚ", "COMUM",
+      "URUTU", "TILÁP", "NILO", "SAPO", "CURUR"
+    ];
+
+    function getRandomWord() {
+      return wordList[Math.floor(Math.random() * wordList.length)];
+    }
+
+    function initBoard() {
+      board.innerHTML = '';
+      for (let i = 0; i < MAX_ATTEMPTS; i++) {
+        const row = document.createElement('div');
+        row.classList.add('row');
+        for (let j = 0; j < BOARD_SIZE; j++) {
+          const cell = document.createElement('div');
+          cell.classList.add('cell');
+          row.appendChild(cell);
+        }
+        board.appendChild(row);
+      }
+    }
+
+    function checkWord() {
+      const row = board.children[currentRow];
+      let guessedWord = '';
+      for (let i = 0; i < BOARD_SIZE; i++) {
+        guessedWord += row.children[i].textContent;
+      }
+
+      if (guessedWord.length < BOARD_SIZE) {
+        message.textContent = 'Palavra incompleta!';
+        return;
+      }
+
+      if (guessedWord === secretWord) {
+        message.textContent = 'Parabéns! Você acertou!';
+        gameOver = true;
+        colorCells(row, true);
+        return;
+      }
+
+      colorCells(row, false);
+
+      currentRow++;
+      currentCell = 0;
+
+      if (currentRow === MAX_ATTEMPTS) {
+        message.textContent = `Você perdeu! A palavra era "${secretWord}".`;
+        gameOver = true;
+      }
+    }
+
+    function colorCells(row, isCorrect) {
+      for (let i = 0; i < BOARD_SIZE; i++) {
+        const cell = row.children[i];
+        const letter = cell.textContent;
+
+        cell.classList.remove('present', 'absent', 'correct');
+        
+        if (isCorrect) {
+          cell.classList.add('correct');
+        } else {
+          if (secretWord[i] === letter) {
+            cell.classList.add('correct');
+          } else if (secretWord.includes(letter)) {
+            cell.classList.add('present');
+          } else {
+            cell.classList.add('absent');
+          }
+        }
+      }
+    }
+
+    function resetGame() {
+      secretWord = getRandomWord();
+      board.innerHTML = '';
+      message.textContent = '';
+      currentRow = 0;
+      currentCell = 0;
+      gameOver = false;
+      initBoard();
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (gameOver) return;
+
+      const row = board.children[currentRow];
+      const cell = row?.children[currentCell];
+
+      if (e.key === 'Enter') {
+        checkWord();
+      } else if (e.key === 'Backspace') {
+        if (currentCell > 0) {
+          currentCell--;
+          row.children[currentCell].textContent = '';
+        }
+      } else if (/^[a-zA-Z]$/.test(e.key) && currentCell < BOARD_SIZE && cell) {
+        cell.textContent = e.key.toUpperCase();
+        currentCell++;
+      }
+    });
+
+    resetButton.addEventListener('click', resetGame);
+    resetGame();
+  </script>
 </body>
 </html>
