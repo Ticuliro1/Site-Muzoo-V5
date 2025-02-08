@@ -20,6 +20,10 @@
       text-align: center;
     }
 
+    p{
+      text-align: left;
+      color: red;
+    }
     #board {
       display: grid;
       grid-template-rows: repeat(6, 1fr);
@@ -131,6 +135,7 @@
     <div class="game-container">
       <h1>TERMO do Muzoo</h1>
       <h2>Dica: animais do Muzoo</h2>
+      <P>* algumas palavras podem ser complementos dos nomes dos animais EX: cobra-coral (coral pode ser a palavra)</P>
       <div id="board"></div>
       <div id="message"></div>
       <button id="resetButton">Reiniciar Jogo</button>
@@ -183,14 +188,14 @@
     const resetButton = document.getElementById('resetButton');
 
     const wordList = [
-      "ACAUÃ", "ARARA", "CANIN", "BEIJA", "TESOU", "BEMTE", "BIGUÁ", "CANAR", "TERRA", "COLEI",
-      "CORRU", "CORUJ", "BURAQ", "CURIC", "GARÇA", "BOIAD", "JACUR", "MARIT", "PINTS", "VENEZ",
-      "POMBÃ", "QUIRI", "ROLIN", "SANHA", "CINZE", "SERIE", "SURIR", "TUCAN", "AÇU", "URUBU",
-      "PRETO", "CACHO", "MATO", "CAMUN", "CAPIV", "CATET", "FURÃO", "PEQUE", "GAMBÁ", "ORELH",
-      "BRANC", "IRARA", "JAGUA", "JARAT", "LOBO", "GUARÁ", "LONTR", "PACA", "PORQU", "ÍNDIA",
-      "QUATI", "SAGUI", "TUFOS", "PRETO", "MICO", "ESTRE", "TAMAN", "BANDE", "MIRIM", "TATU",
-      "GALIN", "PEBA", "COBRA", "CORAL", "FALSA", "JACAR", "PAPO", "AMARE", "TEIÚ", "COMUM",
-      "URUTU", "TILÁP", "NILO", "SAPO", "CURUR"
+      "ACAUÃ", "ARARA", "BEIJA", "BIGUÁ", "TERRA", 
+      "GARÇA", 
+      "POMBA", "SANHA", "URUBU",
+      "PRETO", "FURÃO", "GAMBÁ", 
+       "IRARA", "LOBOS", "GUARÁ", "PACAS", "ÍNDIA",
+      "QUATI", "SAGUI", "MICOS", "MIRIM", "TATUS",
+     "COBRA", "CORAL", "FALSA", "TEIÚS", "COMUM",
+      "URUTU", "SAPOS"
     ];
 
     function getRandomWord() {
