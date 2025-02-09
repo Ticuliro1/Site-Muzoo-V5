@@ -163,7 +163,7 @@ hr {
 nav {
   /* barra de navegação onde tem o inicio, sobre, feedback e tal*/
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
   background: #3b5e1f;
