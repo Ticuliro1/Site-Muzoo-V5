@@ -8,11 +8,12 @@
   <link rel="stylesheet" href="../style.css" />
   <style>
     /* Estilos específicos do TERMO */
-    h1{
+    h1 {
       text-align: center;
       font-family: Play;
       font-size: 40px;
     }
+
     .game-container {
       max-width: 600px;
       margin: 20px auto;
@@ -20,14 +21,15 @@
       text-align: center;
     }
 
-    p{
+    p {
       text-align: left;
       color: red;
     }
+
     #board {
       display: grid;
       grid-template-rows: repeat(6, 1fr);
-      gap: 3px; /* Reduzi o espaçamento vertical entre as linhas */
+      gap: 3px;
       margin: 20px auto;
       justify-content: center;
     }
@@ -35,7 +37,7 @@
     .row {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
-      gap: 5px; /* Espaçamento horizontal entre as células */
+      gap: 5px;
       background-color: #8a8a8a;
       box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.418);
       height: 60px;
@@ -86,9 +88,31 @@
       border-radius: 5px;
       margin-top: 20px;
     }
-    h2{
+
+    h2 {
       font-family: Nexa;
       font-size: 20px;
+    }
+
+    /* Estilos do teclado virtual */
+    .virtual-keyboard {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      gap: 5px;
+      margin-top: 20px;
+    }
+
+    .virtual-keyboard button {
+      padding: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      border: none;
+      background-color: #f0f0f0;
+      border-radius: 5px;
+    }
+
+    .virtual-keyboard button:active {
+      background-color: #ccc;
     }
 
     /* Ajustes para dispositivos móveis */
@@ -100,12 +124,21 @@
       }
 
       #board {
-        gap: 0px; /* Espaçamento vertical ainda menor no mobile */
+        gap: 0px;
       }
 
       .row {
-        gap: 5px; /* Espaçamento horizontal menor no mobile */
+        gap: 5px;
         height: 50px;
+      }
+
+      .virtual-keyboard {
+        grid-template-columns: repeat(7, 1fr);
+      }
+
+      .virtual-keyboard button {
+        padding: 8px;
+        font-size: 0.9rem;
       }
     }
   </style>
@@ -123,9 +156,9 @@
         </div>
         <ul class="nav-list">
           <li><a href="../index.html">Início</a></li>
-          <li><a href="../sobre.html">Sobre</a></li>
-          <li><a href="../Feedback.html">Feedback</a></li>
-          <li><a href="jogos.html">Jogos</a></li>
+          <li><a href="../Paginas-de-navegacao/sobre.html">Sobre</a></li>
+          <li><a href="../Paginas-de-navegacao/Feedback.html">Feedback</a></li>
+          <li><a href="jogos.html">Jogos </a></li>
         </ul>
         <a class="ifmg-logo" href="https://bambui.ifmg.edu.br/portal/portal/portal/portal/de"><img
             src="../4ae281f4-bc79-43d3-ac26-990f22e9ba95.png" width="85px"></a>
@@ -139,6 +172,38 @@
       <div id="board"></div>
       <div id="message"></div>
       <button id="resetButton">Reiniciar Jogo</button>
+
+      <!-- Teclado Virtual -->
+      <div class="virtual-keyboard">
+        <button data-key="Q">Q</button>
+        <button data-key="W">W</button>
+        <button data-key="E">E</button>
+        <button data-key="R">R</button>
+        <button data-key="T">T</button>
+        <button data-key="Y">Y</button>
+        <button data-key="U">U</button>
+        <button data-key="I">I</button>
+        <button data-key="O">O</button>
+        <button data-key="P">P</button>
+        <button data-key="A">A</button>
+        <button data-key="S">S</button>
+        <button data-key="D">D</button>
+        <button data-key="F">F</button>
+        <button data-key="G">G</button>
+        <button data-key="H">H</button>
+        <button data-key="J">J</button>
+        <button data-key="K">K</button>
+        <button data-key="L">L</button>
+        <button data-key="Z">Z</button>
+        <button data-key="X">X</button>
+        <button data-key="C">C</button>
+        <button data-key="V">V</button>
+        <button data-key="B">B</button>
+        <button data-key="N">N</button>
+        <button data-key="M">M</button>
+        <button data-key="Backspace">⌫</button>
+        <button data-key="Enter">Enter</button>
+      </div>
     </div>
 
     <footer class="rodape" id="contato">
@@ -174,8 +239,8 @@
       <p class="rodape-direitos">Copyright © 2023 – Todos os Direitos Reservados.</p>
     </footer>
   </div>
-
-  <script>
+  <script src="../java/mobile-navbar.js"></script>
+  <script >
     const BOARD_SIZE = 5;
     const MAX_ATTEMPTS = 6;
     let currentRow = 0;
@@ -188,13 +253,13 @@
     const resetButton = document.getElementById('resetButton');
 
     const wordList = [
-      "ACAUÃ", "ARARA", "BEIJA", "BIGUÁ", "TERRA", 
-      "GARÇA", 
+      "ACAUÃ", "ARARA", "BEIJA", "BIGUÁ", "TERRA",
+      "GARÇA",
       "POMBA", "SANHA", "URUBU",
-      "PRETO", "FURÃO", "GAMBÁ", 
-       "IRARA", "LOBOS", "GUARÁ", "PACAS", "ÍNDIA",
+      "PRETO", "FURÃO", "GAMBÁ",
+      "IRARA", "LOBOS", "GUARÁ", "PACAS", "ÍNDIA",
       "QUATI", "SAGUI", "MICOS", "MIRIM", "TATUS",
-     "COBRA", "CORAL", "FALSA", "TEIÚS", "COMUM",
+      "COBRA", "CORAL", "FALSA", "TEIÚS", "COMUM",
       "URUTU", "SAPOS"
     ];
 
@@ -252,7 +317,7 @@
         const letter = cell.textContent;
 
         cell.classList.remove('present', 'absent', 'correct');
-        
+
         if (isCorrect) {
           cell.classList.add('correct');
         } else {
@@ -296,8 +361,31 @@
       }
     });
 
+    // Adicionando funcionalidade ao teclado virtual
+    const virtualKeyboard = document.querySelector('.virtual-keyboard');
+    virtualKeyboard.addEventListener('click', (e) => {
+      if (gameOver) return;
+
+      const key = e.target.dataset.key;
+      const row = board.children[currentRow];
+      const cell = row?.children[currentCell];
+
+      if (key === 'Enter') {
+        checkWord();
+      } else if (key === 'Backspace') {
+        if (currentCell > 0) {
+          currentCell--;
+          row.children[currentCell].textContent = '';
+        }
+      } else if (/^[A-Z]$/.test(key) && currentCell < BOARD_SIZE && cell) {
+        cell.textContent = key;
+        currentCell++;
+      }
+    });
+
     resetButton.addEventListener('click', resetGame);
     resetGame();
   </script>
 </body>
+
 </html>
