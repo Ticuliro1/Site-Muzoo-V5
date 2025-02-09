@@ -43,6 +43,8 @@ const mobileNavbar = new MobileNavbar(
 mobileNavbar.init();
 
 
+
+
 /*jogo da memoria*/
 /*
 const cards = document.querySelectorAll('.memory-card');
