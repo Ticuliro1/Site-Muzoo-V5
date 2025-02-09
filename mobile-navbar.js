@@ -44,6 +44,7 @@ mobileNavbar.init();
 
 
 /*jogo da memoria*/
+/*
 const cards = document.querySelectorAll('.memory-card');
 
 let hasFlippedCard = false;
@@ -101,4 +102,4 @@ function resetBoard() {
 
 cards.forEach(card => card.addEventListener('click', flipCard));
 
-
+*/
