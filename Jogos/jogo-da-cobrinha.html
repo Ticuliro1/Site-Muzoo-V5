@@ -82,8 +82,7 @@ canvas {
 </div> 
         <script src="../java/mobile-navbar.js"></script>
         <script >
-          
-const canvas = document.getElementById("gameCanvas");
+          const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 const startButton = document.getElementById("startButton");
 const restartButton = document.getElementById("restartButton");
@@ -92,9 +91,9 @@ const scoreDisplay = document.getElementById("score");
 startButton.addEventListener("click", startGame);
 restartButton.addEventListener("click", restartGame);
 
-const box = 20; // Tamanho de cada quadrado
-const rows = 20; // Número de linhas
-const columns = 20; // Número de colunas
+let box = 20; 
+let rows = Math.floor(window.innerHeight / box);
+let columns = Math.floor(window.innerWidth / box);
 
 canvas.width = columns * box;
 canvas.height = rows * box;
@@ -251,6 +250,7 @@ function collision(head, array) {
     }
     return false;
 }
+
 
         </script>
 
